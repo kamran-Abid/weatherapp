@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>header}}
+    <title>404 Error Page</title>
+</head>
+
+<body>
+    {{>navbar}}
+
+    <!-- main header -->
+    <div class="container-fluid main_header">
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto my-0">
+                <div class="row">
+                    <!-- right side div -->
+                    <div class="col-md-10 col-12 main_header_left">
+                        <figure>
+                            <img src="images/404error.png" alt="about images" class="image-fluid errimg" title="">
+                        </figure>
+                        <p>{{error_msg}}</p>
+                        <h1>This page <spam class="sp">Don't</spam> Exist</h1>
+                        <a href="/" target="_zkweatherapp"><button>Go Back</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{>footer}}
+</body>
+
+</html>

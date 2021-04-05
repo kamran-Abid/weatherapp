@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>header}}
+    <title>Search Weather</title>
+</head>
+
+<body>
+    {{>navbar}}
+
+    <!-- main header -->
+    <div class="container-fluid main_header">
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto hvh">
+                <div class="main_content">
+                    <form class="temp_form">
+                        <input type="text" id="cityName" placeholder="Enter city name" autocomplete="off">
+                        <input type="submit" value="search" id="submitBtn">
+                    </form>
+                </div>
+                <div class="temp_info">
+                    <div class="top_layer">
+                        <p id="day">Tuesday</p>
+                        <p id="date">OCT 13</p>
+                    </div>
+                    <div class="main_layer">
+                        <p id="city_name">City name</p>
+                        <div class="middle_layer data_hidden">
+                            <p>
+                                <spam id="temp">47</spam><sup class="subd">0</sup>C
+                            </p>
+                            <p id="temp_status"><i class="fa fa-cloud"></i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{>footer}}
+
+        <script src="js/main.js"></script>
+        <script>
+            const getCurrentDay = () => {
+                let weekDay = new Array(7);
+                weekDay[0] = "SUN";
+                weekDay[1] = "MON";
+                weekDay[2] = "TUE";
+                weekDay[3] = "WED";
+                weekDay[4] = "THU";
+                weekDay[5] = "FRI";
+                weekDay[6] = "SAT";
+
+                // Get and format current time
+                const getCurrentTime = () => {
+
+                }
+
+                var months = [
+                    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+                ];
+
+                let currentTime = new Date();
+                let days = weekDay[currentTime.getDay()];
+
+                let day = document.getElementById('day');
+                let now = new Date();
+                let hour = now.getHours();
+                let min = now.getMinutes();
+
+                var month = months[now.getMonth() + 1];
+                var date = now.getDate();
+                var year = now.getFullYear();
+
+                var period = 'AM';
+                if (hour > 11) {
+                    period = "PM";
+                    if (hour > 12) hour -= 12; // Format of 12 clock 
+                }
+                if (min < 10) {
+                    min = '0' + min;
+                }
+
+                const currDate = document.getElementById('date');
+                currDate.innerText = `${month} ${date} | ${hour} : ${min} ${period}`
+                day.innerText = days;
+
+
+            };
+            getCurrentDay();
+
+        </script>
+</body>
+
+</html>
